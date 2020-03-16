@@ -1,0 +1,73 @@
+PODS:
+  - Alamofire (5.0.3)
+  - Apollo (0.23.2):
+    - Apollo/Core (= 0.23.2)
+  - Apollo/Core (0.23.2)
+  - ApolloAlamofire (0.7.1):
+    - Alamofire (~> 5.0.2)
+    - Apollo (~> 0.23.2)
+  - Differentiator (4.0.1)
+  - RxApolloClient (1.3.0):
+    - Apollo (~> 0.23.2)
+    - RxSwift (>= 5.0)
+  - RxCocoa (5.1.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.0)
+  - youtube-ios-player-helper (0.1.6)
+
+DEPENDENCIES:
+  - Apollo (~> 0.23.2)
+  - ApolloAlamofire (from `https://github.com/ChrDel/ApolloAlamofire.git`)
+  - RxApolloClient (from `https://github.com/ChrDel/RxApolloClient.git`)
+  - RxCocoa
+  - RxDataSources
+  - RxSwift
+  - youtube-ios-player-helper
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Apollo
+    - Differentiator
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - youtube-ios-player-helper
+
+EXTERNAL SOURCES:
+  ApolloAlamofire:
+    :git: https://github.com/ChrDel/ApolloAlamofire.git
+  RxApolloClient:
+    :git: https://github.com/ChrDel/RxApolloClient.git
+
+CHECKOUT OPTIONS:
+  ApolloAlamofire:
+    :commit: 1ed8709c7b46c586d49ac93731dad187dd74fcc6
+    :git: https://github.com/ChrDel/ApolloAlamofire.git
+  RxApolloClient:
+    :commit: 9d5295c088bb7ecc9d5630674910e55ea4341dda
+    :git: https://github.com/ChrDel/RxApolloClient.git
+
+SPEC CHECKSUMS:
+  Alamofire: 7c444099d8ccb6ae7e6fc8f343646d3821d8679b
+  Apollo: 4dbc5912e866a505c6ab8992e721c7b6de201c70
+  ApolloAlamofire: bc6247369acb25cf5fca46f62fc90ee783647dc3
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  RxApolloClient: 740ee663686480e1f6f8f7107c493dabaa5bd085
+  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
+  RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
+  youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
+
+PODFILE CHECKSUM: 2197831ac0a58fef0adc339564fedddbd0d2dcdd
+
+COCOAPODS: 1.9.1

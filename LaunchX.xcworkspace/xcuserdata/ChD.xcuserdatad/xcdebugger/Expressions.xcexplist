@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "AlamofireTransport.send&lt;A&gt;(operation:completionHandler:):AlamofireTransport.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "loggingEnabled">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Session.performSetupOperations(for:convertible:):Session.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rootQueue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in LaunchCell.playVideo():LaunchCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(self.videoLink.text! as NSString).lastPathComponent">
+            </PersistentString>
+            <PersistentString
+               value = "self?.youtubePlayerView.subviews">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Date.convertToLocalTime(fromTimeZone:):Date+Helpers.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "28800/60/60">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Network.init():Network.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "u">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "String.localStringToDate.getter:String+Helpers.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "date!">
+            </PersistentString>
+            <PersistentString
+               value = "dateFormatter.date(from: self)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

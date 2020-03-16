@@ -1,0 +1,12 @@
+//
+//  MainModels.swift
+//  LaunchX
+//
+//  Created by Christophe Delhaze on 16/3/20.
+//  Copyright © 2020 Christophe Delhaze. All rights reserved.
+//
+
+config_name = Dev
+server_api_url = api.spacex.land/graphql
+api_version = v1
+protocol = https
