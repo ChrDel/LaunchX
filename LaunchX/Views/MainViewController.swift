@@ -122,6 +122,7 @@ class MainViewController: UIViewController {
             // begin tableview update to force cell size to change and display the video player.
             self?.tableView.beginUpdates()
             guard let cell = self?.tableView.cellForRow(at: indexPath) as? LaunchCell, let videoLinkText = cell.videoLink.text, !videoLinkText.isEmpty else {
+                self?.tableView.endUpdates()
                 return
             }
             cell.playVideo()
