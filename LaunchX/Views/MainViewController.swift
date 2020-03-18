@@ -63,7 +63,7 @@ class MainViewController: UIViewController {
             
             strongSelf.tableView.dataSource = nil
             observable.bind(to: strongSelf.tableView.rx.items(dataSource: strongSelf.dataSource)).disposed(by: strongSelf.disposeBag)
-            
+                
         }).disposed(by: disposeBag)
         
         // Link selected segment index to view model to display the approproate data in the tableView
@@ -120,11 +120,10 @@ class MainViewController: UIViewController {
         // when cell tapped, play the video friom the URL
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             // begin tableview update to force cell size to change and display the video player.
-            self?.tableView.beginUpdates()
             guard let cell = self?.tableView.cellForRow(at: indexPath) as? LaunchCell, let videoLinkText = cell.videoLink.text, !videoLinkText.isEmpty else {
-                self?.tableView.endUpdates()
                 return
             }
+            self?.tableView.beginUpdates()
             cell.playVideo()
             self?.tableView.endUpdates()
         }).disposed(by: disposeBag)
