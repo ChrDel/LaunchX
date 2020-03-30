@@ -23,54 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A71BED95-8B23-47B7-917B-8067ECEC5DE8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/ApolloAlamofire/ApolloAlamofire/Classes/AlamofireTransport.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "send(operation:completionHandler:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A71BED95-8B23-47B7-917B-8067ECEC5DE8 - 3763169a87c2716"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ApolloAlamofire.AlamofireTransport.send&lt;A where A: Apollo.GraphQLOperation&gt;(operation: A, completionHandler: (Swift.Result&lt;Apollo.GraphQLResponse&lt;A&gt;, Swift.Error&gt;) -&gt; ()) -&gt; Apollo.Cancellable"
-                  moduleName = "ApolloAlamofire"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ChD/Documents/Swift%20Projects/LaunchX/Pods/ApolloAlamofire/ApolloAlamofire/Classes/AlamofireTransport.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  uuid = "A71BED95-8B23-47B7-917B-8067ECEC5DE8 - d3a04f7284dd94f3"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Apollo.JSONEncodable&gt;) -&gt; Swift.Optional&lt;Any&gt; in ApolloAlamofire.AlamofireTransport.send&lt;A where A: Apollo.GraphQLOperation&gt;(operation: A, completionHandler: (Swift.Result&lt;Apollo.GraphQLResponse&lt;A&gt;, Swift.Error&gt;) -&gt; ()) -&gt; Apollo.Cancellable"
-                  moduleName = "ApolloAlamofire"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ChD/Documents/Swift%20Projects/LaunchX/Pods/ApolloAlamofire/ApolloAlamofire/Classes/AlamofireTransport.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CA591165-3F11-401E-9F5E-7462EE5DE14F"
             shouldBeEnabled = "No"
             ignoreCount = "0"

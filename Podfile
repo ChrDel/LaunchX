@@ -6,7 +6,7 @@ target 'LaunchX' do
   use_frameworks!
 
   # Pods for LaunchX
-  pod 'Apollo', '~>0.23.2'
+  pod 'Apollo', '~>0.24.0'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'

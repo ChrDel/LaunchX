@@ -36,7 +36,7 @@ public class AlamofireTransport: NetworkTransport {
         self.clientVersion = clientVersion
     }
     
-    public func send<Operation>( operation: Operation, completionHandler: @escaping (Swift.Result<GraphQLResponse<Operation>, Error>) -> () ) -> Cancellable where Operation: GraphQLOperation {
+    public func send<Operation>(operation: Operation, completionHandler: @escaping (Result<GraphQLResponse<Operation.Data>, Error>) -> Void) -> Cancellable where Operation : GraphQLOperation {
         let vars: JSONEncodable = operation.variables?.mapValues { $0?.jsonValue }
         let body: Parameters = [
             "query": operation.queryDocument,
@@ -51,7 +51,7 @@ public class AlamofireTransport: NetworkTransport {
         }
         return request.responseJSON { response in
             let result = response.result
-                .flatMap { value -> Result<GraphQLResponse<Operation>, AFError> in
+                .flatMap { value -> Result<GraphQLResponse<Operation.Data>, AFError> in
                     guard let value = value as? JSONObject else {
                         return .failure(response.error!)
                     }

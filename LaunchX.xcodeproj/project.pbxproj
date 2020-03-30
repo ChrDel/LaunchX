@@ -27,8 +27,6 @@
 		EED05AC5241FFCFA0008933D /* LaunchListQuery.Data+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED05AC4241FFCFA0008933D /* LaunchListQuery.Data+Helpers.swift */; };
 		EED05AC9241FFE930008933D /* LaunchXAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED05AC8241FFE930008933D /* LaunchXAPI.swift */; };
 		EED05ACB241FFEF50008933D /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED05ACA241FFEF50008933D /* MainModels.swift */; };
-		EED05AD1242007F60008933D /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EED05ACF242007F60008933D /* Development.xcconfig */; };
-		EED05AD2242007F60008933D /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EED05AD0242007F60008933D /* Production.xcconfig */; };
 		EED05AD42420084B0008933D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED05AD32420084B0008933D /* Environment.swift */; };
 /* End PBXBuildFile section */
 
@@ -216,7 +214,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Christophe Delhaze";
 				TargetAttributes = {
 					EE16CBB4241D5B3000B02599 = {
@@ -252,8 +250,6 @@
 				EE16CBC2241D5B3200B02599 /* Assets.xcassets in Resources */,
 				EE6BB945241F7FB90044E248 /* launch3.jpg in Resources */,
 				EE16CBC0241D5B3000B02599 /* Main.storyboard in Resources */,
-				EED05AD1242007F60008933D /* Development.xcconfig in Resources */,
-				EED05AD2242007F60008933D /* Production.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
