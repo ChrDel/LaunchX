@@ -3,10 +3,42 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "AlamofireTransport.send&lt;A&gt;(operation:completionHandler:):AlamofireTransport.swift">
+         contextName = "closure #2 in MainView.body.getter:MainView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "loggingEnabled">
+               value = "windowScenedelegate.window!.rootViewController!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Network.init():Network.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "u">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Date.convertToLocalTime(fromTimeZone:):Date+Helpers.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "28800/60/60">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in closure #1 in closure #2 in MainView.body.getter:MainView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view3.constraints">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MainViewModel.init(launchListData:):MainViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "error">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -15,6 +47,39 @@
          <PersistentStrings>
             <PersistentString
                value = "rootQueue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AlamofireTransport.send&lt;A&gt;(operation:completionHandler:):AlamofireTransport.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "loggingEnabled">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "String.localStringToDate.getter:String+Helpers.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "date!">
+            </PersistentString>
+            <PersistentString
+               value = "dateFormatter.date(from: self)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in closure #1 in MainViewModel.init(launchListData:):MainViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data.resultMap[&quot;launchesPast&quot;] as! [[String : Any?]]">
+            </PersistentString>
+            <PersistentString
+               value = "caca">
+            </PersistentString>
+            <PersistentString
+               value = "data.resultMap[&quot;launchesPast&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,29 +95,24 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Date.convertToLocalTime(fromTimeZone:):Date+Helpers.swift">
+         contextName = "closure #1 in closure #2 in MainView.body.getter:MainView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "28800/60/60">
+               value = "windowScenedelegate.window!.rootViewController!.view">
+            </PersistentString>
+            <PersistentString
+               value = "windowScenedelegate.window!.rootViewController!">
+            </PersistentString>
+            <PersistentString
+               value = "windowScenedelegate.window!.rootViewController!.view.subviews">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Network.init():Network.swift">
+         contextName = "closure #1 in closure #1 in closure #4 in closure #1 in MainView.body.getter:MainView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "u">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "String.localStringToDate.getter:String+Helpers.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "date!">
-            </PersistentString>
-            <PersistentString
-               value = "dateFormatter.date(from: self)">
+               value = "launch.isVideoPlayerHidden">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

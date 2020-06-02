@@ -7,59 +7,62 @@
 //
 
 import Apollo
-import RxSwift
-import RxCocoa
-import RxDataSources
-import RxApolloClient
+import SwiftUI
+import Combine
 
-class MainViewModel {
+class MainViewModel: ObservableObject {
     
-    /// To make sure all bindings are freed and we don't have any memory leak.
-    private let disposeBag = DisposeBag()
+    ///Used to filter the network call to display past launches in the first segment of the segmented control and the the upcoming launches in the second segment.
+    @Published var segmentIndex: Int = 0
     
-    /// Past Launches or Future / Upcoming Launches selection
-    let selection: Selection
-
-    /// Serach criteria
-    let search: Search
-
-    /// Data received from the GraphQL API call
-    let launches: Launches
-        
+    ///Search criteria used for the GraphQL API call
+    @Published var criteria: (missionName: String, rocketName: String, launchYear: String) = ("", "", "")
+    
+    ///Contains the filtered launches to be displayed in the MainView
+    @Published var launches = [launchListRow]()
+    
+    ///Store all cancellable subscriptions to avoid memory leaks
+    private var subscriptions = Set<AnyCancellable>()
+    
     /// Initialize our view model
     /// Send a first GraphQL API call to get all the launches
-    /// Create the bindings to filter the display between past and future launches and to search the database using GraphQL API
+    /// create the publisher / observer to update the GraphQL call when the search criteria change
+    /// Create the publisher / observer to filter the display between past and future launches and to search the database using GraphQL API
     init(launchListData: LaunchListQuery.Data = LaunchListQuery.Data()) {
-
-        /// To combine the segment Index  ( past / future ) with the data received from the server
-        func combineObservable(segmentIndex: Observable<Int>, launchData: Observable<LaunchListQuery.Data>) -> Observable<(Int, LaunchListQuery.Data)> {
-            return Observable.combineLatest(segmentIndex.startWith(0), launchData)
-        }
-
-        /// To combine the segment Index ( past / future ) with the search criteria
-        func combineObservable(segmentIndex: Observable<Int>, search: Observable<(missionName: String?, rocketName: String?, launchYear: String?)>) -> Observable<(Int, (missionName: String?, rocketName: String?, launchYear: String?))> {
-            return Observable.combineLatest(segmentIndex.startWith(0), search.startWith((missionName: nil, rocketName: nil, launchYear: nil)))
-        }
-
-        let segmentIndexSubject = PublishRelay<Int>()
-        let searchSubject = PublishRelay<(missionName: String?, rocketName: String?, launchYear: String?)>()
         
-        let launchDataSections = combineObservable(segmentIndex: segmentIndexSubject.asObservable(), search: searchSubject.asObservable()).map({ (arg0) -> Observable<[LaunchDataSection]> in
-            let (segmentIndex, (missionName, rocketName, launchYear)) = arg0
-            return combineObservable(segmentIndex: Observable.just(segmentIndex), launchData: Network.shared.apollo.rx.fetch(query: LaunchListQuery(rocketName: rocketName, missionName: missionName, launchYear: launchYear)).asObservable())
-                .map({ (arg) -> [LaunchDataSection] in
-                    let (segmentIndex, launchListData) = arg
-                    let launchesPast = launchListData.launchesPast ?? [LaunchListQuery.Data.LaunchesPast]()
-                    let launchesUpcoming = launchListData.launchesUpcoming ?? [LaunchListQuery.Data.LaunchesUpcoming]()
-                    return [segmentIndex == 0 ? LaunchDataSection(header: "", items: launchesPast.compactMap({ $0 })) : LaunchDataSection(header: "", items: launchesUpcoming.compactMap({ $0 }))]
-                })
-            })
-            .asDriver(onErrorJustReturn: Observable.just([LaunchDataSection]()))
-
-        self.selection = Selection(segmentIndex: segmentIndexSubject)
-        self.search = Search(criteria: searchSubject)
-        self.launches = Launches(launchDataSections: launchDataSections)
+        ///We observe any changes made to the search criteria. We empty the current launches while the call to the network is in progress.
+        $criteria
+            .receive(on: DispatchQueue.main)
+            .sink { (_) in
+            self.launches = [launchListRow]()
+        }
+        .store(in: &subscriptions)
+        
+        ///Declare publisher that will emit the return of the GraphQL API call.
+        let launchesPublisher = $criteria
+            .receive(on: DispatchQueue.main)
+            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+            .flatMap { arg0 -> Future<LaunchListQuery.Data, Never> in
+                let (missionName, rocketName, launchYear) = arg0
+                return Network.shared.apollo.fetch(query: LaunchListQuery(rocketName: rocketName, missionName: missionName, launchYear: launchYear))
+        }
+                
+        ///Combine the latest segmentIndex publisher whith the latest launches returned from the API call.
+        ///We do this to filter the data without doing an API call. Or if the API data change to filter it with the current / latest value of the segmentIndex
+        /// we map the result to an array of LaunchListRow that can be used by the MainView
+        /// We then create an observer to assign the result to the launches
+        Publishers.CombineLatest($segmentIndex,launchesPublisher)
+            .receive(on: DispatchQueue.main)
+            .map { arg0 -> [launchListRow] in
+                let (segmentIndex, launches) = arg0
+                let filteredLaunches = segmentIndex == 0 ? (launches.launchesPast ?? [LaunchListQuery.Data.LaunchesPast?]()).compactMap { $0?.aslaunchListRow } : (launches.launchesUpcoming ?? [LaunchListQuery.Data.LaunchesUpcoming]()).compactMap { $0?.aslaunchListRow }
+                return filteredLaunches
+        }
+        .sink { (launches) in
+            self.launches = launches
+        }
+        .store(in: &subscriptions)
         
     }
-        
+    
 }

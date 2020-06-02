@@ -8,39 +8,45 @@
 //  Copyright © 2020 Christophe Delhaze. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
-import RxDataSources
+import SwiftUI
+import Combine
 import Apollo
 
 /// Indicate if we should display the Past Launches or Future / Upcoming Launches
 struct Selection {
-    let segmentIndex: PublishRelay<Int>
 }
 
 /// Used to specify the serach criteria
 struct Search {
-    let criteria: PublishRelay<(missionName: String?, rocketName: String?, launchYear: String?)>
 }
 
 /// Data received from the GraphQL API call
 struct Launches {
-    let launchDataSections: Driver<Observable<[LaunchDataSection]>>
 }
 
-/// Structure required by RxDataSources. Used to display the launches in the tableView
-/// We will only have one section since i decided to have the past and future launches displayed separately
-/// vs displaying them in sections.
-struct LaunchDataSection {
-    var header: String
-    var items: [GraphQLSelectionSet]
+///Common structure use to display data in the Lanches List.
+struct launchListRow: Hashable {
+    var launchDateLocal: String?
+    var videoLink: String?
+    var missionName: String?
+    var rocketName: String?
+    var isVideoPlayerHidden: Bool = true
 }
 
-/// Conforming to protocol required by RxDataSources
-extension LaunchDataSection: SectionModelType {
-    typealias Item = GraphQLSelectionSet
-    init(original: LaunchDataSection, items: [Item]) {
-        self = original
-        self.items = items
+///Helper to convert a past launch into a LaunchListRow
+extension LaunchListQuery.Data.LaunchesPast {
+    
+    var aslaunchListRow: launchListRow {
+        launchListRow(launchDateLocal: self.launchDateLocal, videoLink: self.links?.videoLink, missionName: self.missionName, rocketName: self.rocket?.rocketName)
     }
+    
+}
+
+///Helper to convert an upcoming launch into a LaunchListRow
+extension LaunchListQuery.Data.LaunchesUpcoming {
+    
+    var aslaunchListRow: launchListRow {
+        launchListRow(launchDateLocal: self.launchDateLocal, videoLink: self.links?.videoLink, missionName: self.missionName, rocketName: self.rocket?.rocketName)
+    }
+    
 }

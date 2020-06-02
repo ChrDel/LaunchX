@@ -9,7 +9,7 @@ public final class LaunchListQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query LaunchList($rocketName: String, $missionName: String, $launchYear: String) {
-      launchesUpcoming(find: {rocket_name: $rocketName, mission_name: "", launch_year: $launchYear}) {
+      launchesUpcoming(find: {rocket_name: $rocketName, mission_name: $missionName, launch_year: $launchYear}) {
         __typename
         mission_name
         links {
@@ -58,7 +58,7 @@ public final class LaunchListQuery: GraphQLQuery {
     public static let possibleTypes: [String] = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("launchesUpcoming", arguments: ["find": ["rocket_name": GraphQLVariable("rocketName"), "mission_name": "", "launch_year": GraphQLVariable("launchYear")]], type: .list(.object(LaunchesUpcoming.selections))),
+      GraphQLField("launchesUpcoming", arguments: ["find": ["rocket_name": GraphQLVariable("rocketName"), "mission_name": GraphQLVariable("missionName"), "launch_year": GraphQLVariable("launchYear")]], type: .list(.object(LaunchesUpcoming.selections))),
       GraphQLField("launchesPast", arguments: ["find": ["rocket_name": GraphQLVariable("rocketName"), "mission_name": GraphQLVariable("missionName"), "launch_year": GraphQLVariable("launchYear")]], type: .list(.object(LaunchesPast.selections))),
     ]
 

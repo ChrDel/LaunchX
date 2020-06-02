@@ -7,10 +7,6 @@ target 'LaunchX' do
 
   # Pods for LaunchX
   pod 'Apollo', '~>0.24.0'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'RxDataSources'
-  pod 'RxApolloClient', :git => 'https://github.com/ChrDel/RxApolloClient.git'
   pod 'ApolloAlamofire', :git => 'https://github.com/ChrDel/ApolloAlamofire.git'
   pod 'youtube-ios-player-helper'
 

@@ -1,5 +1,5 @@
 query LaunchList ($rocketName: String, $missionName: String, $launchYear: String) {
-  launchesUpcoming(find: {rocket_name: $rocketName, mission_name: "", launch_year: $launchYear}) {
+  launchesUpcoming(find: {rocket_name: $rocketName, mission_name: $missionName, launch_year: $launchYear}) {
     mission_name
     links {
       video_link
