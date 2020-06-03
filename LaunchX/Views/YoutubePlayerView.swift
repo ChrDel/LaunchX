@@ -19,6 +19,11 @@ struct YoutubePlayerView: UIViewRepresentable {
     ///UIKit YTPlayerView
     private let youtubePlayerView = YTPlayerView()
     
+    ///To prevent the video from reloading if it's already loaded
+    private var isVideoLoaded: Bool {
+        youtubePlayerView.webView != nil
+    }
+    
     ///Initialize the View
     init(videoLink: String?) {
         self.videoLink = videoLink
@@ -36,7 +41,7 @@ struct YoutubePlayerView: UIViewRepresentable {
     
     ///Load the video in the player
     func loadVideo() {
-        if let text = videoLink {
+        if let text = videoLink, !isVideoLoaded {
             youtubePlayerView.load(withVideoId: (text as NSString).lastPathComponent)
         }
     }

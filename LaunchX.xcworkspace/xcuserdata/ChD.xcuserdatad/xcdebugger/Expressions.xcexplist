@@ -27,6 +27,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "YoutubePlayerView.loadVideo():YoutubePlayerView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(text as NSString).lastPathComponent">
+            </PersistentString>
+            <PersistentString
+               value = "youtubePlayerView.webView">
+            </PersistentString>
+            <PersistentString
+               value = "youtubePlayerView.videoEmbedCode()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in closure #1 in closure #2 in MainView.body.getter:MainView.swift">
          <PersistentStrings>
             <PersistentString
@@ -43,18 +57,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Session.performSetupOperations(for:convertible:):Session.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "rootQueue">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "AlamofireTransport.send&lt;A&gt;(operation:completionHandler:):AlamofireTransport.swift">
          <PersistentStrings>
             <PersistentString
                value = "loggingEnabled">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Session.performSetupOperations(for:convertible:):Session.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rootQueue">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -91,6 +105,14 @@
             </PersistentString>
             <PersistentString
                value = "self?.youtubePlayerView.subviews">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in closure #1 in closure #4 in closure #1 in MainView.body.getter:MainView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mainViewModel.launches[0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

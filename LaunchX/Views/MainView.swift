@@ -136,14 +136,16 @@ struct MainView: View {
                             Text(launch.launchDateLocal?.localStringToDate?.toLongDateTime ?? "-")
                             Text("Video Link:").fontWeight(.semibold)
                             Text(launch.videoLink ?? "-").foregroundColor(.blue).onTapGesture {
-                                youtubePlayer.loadVideo()
-//                                withAnimation {
-                                    if let index = self.mainViewModel.launches.firstIndex(where: { $0 == launch}) {
-                                        self.mainViewModel.launches[index].isVideoPlayerHidden.toggle()
-                                    }
-//                                }
+                                if let index = self.mainViewModel.launches.firstIndex(where: { $0 == launch}) {
+                                    self.mainViewModel.launches[index].isVideoPlayerHidden.toggle()
+                                }
                             }
-                            youtubePlayer.isHidden(launch.isVideoPlayerHidden).frame(width: UIScreen.main.bounds.width-30, height: (UIScreen.main.bounds.width-40)*9/16*(launch.isVideoPlayerHidden ? 0 : 1)).animation(.default)
+                            youtubePlayer.frame(width: UIScreen.main.bounds.width-30, height: (UIScreen.main.bounds.width-40)*9/16*(launch.isVideoPlayerHidden ? 0 : 1)).animation(.default)
+                                .onAppear {
+                                    if !launch.isVideoPlayerHidden {
+                                        youtubePlayer.loadVideo()
+                                    }
+                            }
                         }
                         .padding([.top, .bottom])
                         )
